@@ -1,0 +1,86 @@
+<div id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal header -->
+        <div class="modal-header">
+          <h3>How to share your story</h3>
+        </div>
+
+        <!-- Step 1 of the tutorial -->
+        <div id="0" class="modal-body" style="display:none">
+          <p style="text-align: justify;">
+            This application collects current experiences and past memories related to the current New Waverley area in North Canongate, Edinburgh.
+          </p>
+          <p style="text-align: justify;">
+            You will be presented with a map of the area. If you recognize a location or building that is significant to you, just click on it. A marker will be added to the map.
+          </p>
+              <p style="text-align: justify;">
+                If you've added the marker in the wrong place by mistake, don't worry, you can move the marker by clicking on it.
+                 </p>
+              <img src="https://blog.micropasts.org/wp-content/uploads/2021/08/tutorial1-e1628713558237.jpg" />
+            </p>
+          </div>
+
+          <!-- Step 2 of the tutorial -->
+          <div id="1" class="modal-body" style="display:none">
+            <p style="text-align: justify;">
+              Please describe your connection with the North Canongate area by selecting one of the tags suggested, or use the box below if none of them fit.
+            <p style="text-align: justify;">
+              Then, use the Memory Box to share your story. First, type the name of the place/building if you know it, and a broad date or dates (for example "1980s" or "Summer 2015") associated with your experience. Then, tell us why that place is significant to you.
+              <p>
+                <img src="https://blog.micropasts.org/wp-content/uploads/2021/08/tutorial2-e1628714096513.jpg" />
+              </p>
+            </div>
+
+            <!-- Step 3 of the tutorial -->
+            <div id="2" class="modal-body" style="display:none">
+              <p style="text-align: justify;">
+                Finally, press the green button "Save the place and your memories" to submit your story!
+                <p>
+                  <img src="https://blog.micropasts.org/wp-content/uploads/2021/07/submit-e1626898527956.png" />
+                </p>
+                <p style="text-align: justify;">
+                  Please contact us at deepcitiesapp@gmail.com if you have any comments or queries about the app or our project.
+                </p>
+              </div>
+              <!-- End of stepped modal body -->
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <a id="prevBtn" href="#" onclick="showStep('prev')" class="btn btn-default">Previous</a>
+                <a id="nextBtn" href="#" onclick="showStep('next')" class="btn btn-success">Next</a>
+                <a id="startContrib" data-dismiss="modal" href="../urban/newtask" class="btn btn-primary"
+                style="display:none"/><i class="glyphicon glyphicon-thumbs-up"></i> Let's start!</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <script type="text/javascript">
+          var step = -1;
+          function showStep(action) {
+            $("#" + step).hide();
+            if (action == 'next') {
+              step = step + 1;
+            }
+            if (action == 'prev') {
+              step = step - 1;
+            }
+            if (step == 0) {
+              $("#prevBtn").hide();
+              $("#nextBtn").show();
+            }
+            else {
+              $("#prevBtn").show();
+            }
+            if (step == 2 ) {
+              $("#nextBtn").hide();
+              $("#prevBtn").show();
+              $("#startContrib").show();
+            }
+            $("#" + step).show();
+          }
+          showStep('next');
+          $("#myModal").modal('show');
+        </script>
